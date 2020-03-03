@@ -17,14 +17,8 @@ namespace SolidDna.DynamicLoadPlugIn
 
 
         #region Public Properties
-        /// <summary>
-        /// My Add-in title
-        /// </summary>
         public override string AddInTitle => "OPC UA Digital Twin";
 
-        /// <summary>
-        /// My Add-in description
-        /// </summary> 
         public override string AddInDescription => "Modify assembly in real time based by connecting to OPC UA variables from and industrial controller";
         #endregion
 
