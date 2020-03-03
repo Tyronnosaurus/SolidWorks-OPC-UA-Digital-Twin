@@ -205,7 +205,6 @@ namespace SolidDna.DynamicLoadPlugIn
         {
             SetDetails();
         }
-
         #endregion
 
 
@@ -220,7 +219,7 @@ namespace SolidDna.DynamicLoadPlugIn
                 var dimensionSelectionName = string.Empty;            
                 lastDimension.AsDimension((dimension) => dimensionSelectionName = dimension.SelectionName);    // Get the dimension name
 
-                // Set the length button name and evaluate its value
+                // Set the length button name
                 ThreadHelpers.RunOnUIThread(() =>
                 {
                     SheetMetalLengthText.Text = $"\"{dimensionSelectionName}\"";
