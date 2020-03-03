@@ -13,20 +13,19 @@
 
         <Grid>
 
-            
+            <!--Shown when no valid model is open-->
             <StackPanel x:Name="NoPartContent" VerticalAlignment="Center" Visibility="Hidden">
                 <Image Source="part.png" MaxWidth="100" Margin="10" />
                 <TextBlock HorizontalAlignment="Center" Text="Please open a part" />
             </StackPanel>
 
             
+            <!--Shown when valid model is open-->
             <ScrollViewer x:Name="MainContent">
                 <StackPanel>
-                    <!-- #################### -->
-                    <!--    Action Buttons    -->
-                    <!-- #################### -->
+                    
+                    <!--Action Buttons-->
                     <Grid Margin="0 0 0 10">
-
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
@@ -35,15 +34,13 @@
 
                         <Button Grid.Column="0" Margin="0 0 10 0" Content="Apply" Click="ApplyButton_Click" />
                         <Button Grid.Column="1" Margin="5 0 5 0" Content="Reset" Click="ResetButton_Click" />
-                        <Button Grid.Column="2" Margin="10 0 0 0" Content="Refesh" Click="ReadButton_Click" />
+                        <Button Grid.Column="2" Margin="10 0 0 0" Content="Refresh" Click="ReadButton_Click" />
                     </Grid>
-
 
 
                     <!-- Description -->
                     <TextBlock Text="Description" />
                     <TextBox x:Name="DescriptionText" Padding="2"  />
-
 
 
                     <Grid>
@@ -58,18 +55,16 @@
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
 
-                        <!-- Length / Thickness -->
+                        <!-- Dimension name -->
                         <TextBlock Text="Length" Grid.Row="0" Margin="0 5 0 0" />
                         <TextBox Grid.Row="1" x:Name="SheetMetalLengthText" Padding="2"  />
                         <Button x:Name="LengthButton" IsEnabled="False" Click="LengthButton_Click" Grid.Column="1" Grid.Row="1" Content="Get" />
 
-                        <!-- Length / Thickness -->
+                        <!-- Dimension value -->
                         <TextBlock Grid.Column="2" Text="Evaluated" Margin="10 5 0 0" />
                         <TextBox Grid.Column="2" Grid.Row="1" Margin="10 0 0 0" x:Name="SheetMetalLengthEvaluatedText"  IsReadOnly="True" Background="#eee" Padding="2"  />
-
                     </Grid>
-
-
+                    
 
                     <!-- Notes -->
                     <TextBlock Text="Notes" Margin="0 5 0 0" />
