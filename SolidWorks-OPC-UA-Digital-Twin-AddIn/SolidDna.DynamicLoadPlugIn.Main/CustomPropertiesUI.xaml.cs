@@ -106,8 +106,10 @@ namespace SolidDna.DynamicLoadPlugIn
         {
             Application?.ActiveModel?.SelectedObjects((objects) =>
             {
-                var haveDimension = objects.Any(f => f.IsDimension);
-                ThreadHelpers.RunOnUIThread(() => LengthButton.IsEnabled = haveDimension);
+                ThreadHelpers.RunOnUIThread(() =>
+                {
+                    LengthButton.IsEnabled = objects.Any(f => f.IsDimension);
+                });
             });
         }
         #endregion
@@ -188,6 +190,36 @@ namespace SolidDna.DynamicLoadPlugIn
                 });
             });
         }
+
+        private void SetLengthButton_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            // Get the active model
+            var model = Application.ActiveModel;
+
+            ThreadHelpers.RunOnUIThread(() =>
+            {
+                model.SetCustomProperty("D1@Sketch8", "105");
+            });
+
+        }
         #endregion
+
+
+
+        public void SetDimension(string name, string value, string configuration = null)
+        {
+            public ModelExtension Extension = new ModelExtension(BaseObject.Extension, Application.ActiveModel);
+
+
+            // Get the custom property editor
+            using (var editor = Extension.CustomPropertyEditor(configuration))
+            {
+                // Set the property
+                editor.SetCustomProperty(name, value);
+            }
+        }
+
+
+
     }
 }
